@@ -1,21 +1,34 @@
 # cullenmerritt.github.io
 
-Personal portfolio site. Plain HTML, CSS and one small script (`main.js`) for the scroll animations. No build step. GitHub Pages serves it as is.
+Personal portfolio. Plain HTML and CSS plus one script (`main.js`) for the animations. No build step. GitHub Pages serves it as is.
 
-## Adding photos and video
+## Pages
 
-Drop files into `assets/` with these exact names. Each one appears automatically. Any file that is missing simply doesn't show.
-
-| File | Where it shows |
+| File | What it is |
 | --- | --- |
-| `assets/tactus/cover.jpg` | Top of the Tactus page |
-| `assets/tactus/board.jpg` | Tactus page, assembled board |
-| `assets/tactus/enclosure.jpg` | Tactus page, housing and band |
-| `assets/robotic-hand/cover.jpg` | Robotic hand page |
-| `assets/robotic-hand/demo.mp4` | Robotic hand page, video |
+| `index.html` | Home. Animated overview with highlights |
+| `experience.html` | Timeline of every role, newest first, one photo each |
+| `life.html` | Outside engineering. Races, family and travel photos |
+| `projects/tactus.html`, `projects/robotic-hand.html` | Project write-ups |
 
-Keep photos under about 500 KB each (export at 2000 px wide, JPEG quality around 80) so pages load fast. The home page uses animated line drawings instead of photos, so it never looks empty.
+## Adding photos
+
+**Experience timeline.** Put one photo per role in `assets/experience/` with these exact names. Each appears automatically, and a missing file just doesn't show.
+
+`nasa.jpg`, `collins.jpg`, `ta.jpg`, `bae.jpg`, `robotic-hand.jpg`, `city.jpg`
+
+**Outside engineering.** Put the image in `assets/life/`, then add one line to `photos.js`:
+
+```js
+{ src: "assets/life/grandmas-2025.jpg", caption: "Grandma’s Marathon, 2025", section: "races" },
+```
+
+`section` is `races`, `family` or `travel`. A section stays hidden until it has at least one photo.
+
+**Projects.** `assets/tactus/cover.jpg`, `board.jpg`, `enclosure.jpg` and `assets/robotic-hand/cover.jpg`, `demo.mp4`.
+
+Keep photos under about 500 KB (export around 2000 px wide, JPEG quality 80) so pages load fast.
 
 ## Updating the resume
 
-Replace `Cullen_Merritt_Resume.pdf` with a new export. Keep the same filename so every link still works. The public version has no phone number.
+Replace `Cullen_Merritt_Resume.pdf` with a new export and keep the same filename. The public version has no phone number.

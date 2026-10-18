@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experience · Cullen Merritt</title>
+  <meta name="description" content="Cullen Merritt’s internships, co-ops and research, from the City of Northfield to NASA Glenn.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <header class="gnav">
+    <div class="wrap wrap--wide">
+      <a class="gnav__name" href="index.html">Cullen Merritt</a>
+      <nav class="gnav__links" aria-label="Site">
+        <a href="experience.html" aria-current="page">Experience</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#academics">Academics</a>
+        <a href="life.html">Outside engineering</a>
+        <a href="Cullen_Merritt_Resume.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="dark page-head">
+      <div class="wrap">
+        <h1 data-reveal>Experience.</h1>
+        <p data-reveal data-delay="1">Four internships and co-ops, a teaching job and a research project, newest first.</p>
+      </div>
+    </section>
+    <div class="wrap">
+      <ol class="timeline">
+      <li class="entry" id="nasa" data-reveal>
+        <div class="entry__when">August to December 2026</div>
+        <h2>mTRAX Planetary Exploration Intern</h2>
+        <p class="entry__org">NASA Glenn Research Center, Cleveland, OH</p>
+        <figure class="entry__photo"><img src="assets/experience/nasa.jpg" alt="NASA Glenn Research Center, Cleveland, OH" loading="lazy" onerror="this.parentElement.remove()"></figure>
+        <ul>
+          <li>Own an independent rigid-wheel test campaign on the TREC single-wheel dynamometer, measuring net traction and sinkage across forced slip under set vertical loads in two lunar simulants and correlating with contact stress models.</li>
+          <li>Run tractive performance and durability tests on Lunar Outpost and Astrolab tires for NASA’s Lunar Terrain Vehicle, the crewed rover for Artemis surface operations, on TREC and the Simulated Lunar Operations (SLOPE) full-vehicle rig, covering instrumentation, test execution, data acquisition and post-processing.</li>
+        </ul>
+      </li>
+      <li class="entry" id="collins" data-reveal>
+        <div class="entry__when">May to August 2026</div>
+        <h2>Avionics Manufacturing Intern</h2>
+        <p class="entry__org">Collins Aerospace, Burnsville, MN</p>
+        <figure class="entry__photo"><img src="assets/experience/collins.jpg" alt="Collins Aerospace, Burnsville, MN" loading="lazy" onerror="this.parentElement.remove()"></figure>
+        <ul>
+          <li>Redesigned a pneumatic die press for platinum tube forming in Creo, adding a self-aligning feature and replacing a moving internal tube support with a stationary one, avoiding $30,000 in vendor fixture procurement.</li>
+          <li>Set the CAD origin at the forming contour’s datum so the model, drawings and CMM inspection shared one reference frame, and resolved a tolerance stack-up gap after first parts missed tolerance.</li>
+          <li>Improved a wind tunnel fixture design, reducing operator touch time by 23% (6 minutes per cycle).</li>
+        </ul>
+      </li>
+      <li class="entry" id="ta" data-reveal>
+        <div class="entry__when">January to May 2026</div>
+        <h2>Teaching Assistant, Mechanics of Materials (EM 3240)</h2>
+        <p class="entry__org">Iowa State University, Ames, IA</p>
+        <figure class="entry__photo"><img src="assets/experience/ta.jpg" alt="Iowa State University, Ames, IA" loading="lazy" onerror="this.parentElement.remove()"></figure>
+        <ul>
+          <li>Taught statically indeterminate systems, beam deflection (superposition and discontinuity functions), and combined loading in 2D and 3D.</li>
+          <li>Covered Mohr’s circle, principal stresses, failure theories, buckling and pressure vessels.</li>
+        </ul>
+      </li>
+      <li class="entry" id="bae" data-reveal>
+        <div class="entry__when">May to December 2025</div>
+        <h2>Technical Operations Manufacturing Co-op</h2>
+        <p class="entry__org">BAE Systems, Cedar Rapids, IA</p>
+        <figure class="entry__photo"><img src="assets/experience/bae.jpg" alt="BAE Systems, Cedar Rapids, IA" loading="lazy" onerror="this.parentElement.remove()"></figure>
+        <ul>
+          <li>Designed a burn-in test fixture with a quarter turn spring clamp that sets heat sink contact force by geometry instead of operator torque without obstructing convective airflow, sizing the spring with beam theory and FEA.</li>
+          <li>After an early prototype failed burn-in from low contact pressure, instrumented the heat sink fins with 8 thermocouples to baseline the qualified thermal profile and iterated the design against it.</li>
+          <li>Cut fixture changeout 70% (45 to 13 minutes per rack) on the throughput limiting step.</li>
+          <li>Implemented 5S tote management across 10 product configurations, reducing excess totes 45% (Pioneer Award).</li>
+        </ul>
+      </li>
+      <li class="entry" id="robotic-hand" data-reveal>
+        <div class="entry__when">August 2024 to May 2025</div>
+        <h2>Undergraduate Research, Development of a Robotic Hand</h2>
+        <p class="entry__org">Iowa State University, Ames, IA</p>
+        <figure class="entry__photo"><img src="assets/experience/robotic-hand.jpg" alt="Iowa State University, Ames, IA" loading="lazy" onerror="this.parentElement.remove()"></figure>
+        <ul>
+          <li>Built the open-source Robot Nano Hand, a 3D-printed, tendon-driven hand with 11 servos, a Jetson Nano and a camera.</li>
+          <li>Implemented Python motion control and actuator coordination for multi-DOF articulation.</li>
+        </ul>
+        <a class="go" href="projects/robotic-hand.html">Read the build</a>
+      </li>
+      <li class="entry" id="city" data-reveal>
+        <div class="entry__when">May to August 2024</div>
+        <h2>Engineering Intern</h2>
+        <p class="entry__org">City of Northfield, Northfield, MN</p>
+        <figure class="entry__photo"><img src="assets/experience/city.jpg" alt="City of Northfield, Northfield, MN" loading="lazy" onerror="this.parentElement.remove()"></figure>
+        <ul>
+          <li>Worked on city road reconstruction and concrete projects built by private contractors.</li>
+          <li>On worksites, performed inspections, grade checks and measurements.</li>
+        </ul>
+      </li>
+      </ol>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <h2 data-reveal>Let’s talk.</h2>
+      <p data-reveal data-delay="1">I’m looking for a summer 2027 internship in mechanical design and test. Email is the fastest way to reach me.</p>
+      <div class="actions" data-reveal data-delay="2">
+        <a class="pill pill--fill" href="mailto:cfomerritt@gmail.com">Email me</a>
+        <a class="pill pill--line" href="https://www.linkedin.com/in/cullen-merritt">LinkedIn</a>
+      </div>
+      <div class="footer__links">
+        <a href="https://github.com/cullenmerritt">GitHub</a>
+        <a href="Cullen_Merritt_Resume.pdf">Resume (PDF)</a>
+      </div>
+      <small>© 2026 Cullen Merritt</small>
+    </div>
+  </footer>
+
+</body>
+</html>
