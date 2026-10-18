@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tactus · Cullen Merritt</title>
+  <meta name="description" content="Tactus, a wearable Bluetooth shortcut remote with a custom ESP32-C6 circuit board, designed and built by Cullen Merritt.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../main.js" defer></script>
+</head>
+<body>
+
+  <header class="gnav">
+    <div class="wrap wrap--wide">
+      <a class="gnav__name" href="../index.html">Cullen Merritt</a>
+      <nav class="gnav__links" aria-label="Sections">
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#academics">Academics</a>
+        <a href="../index.html#interests">Interests</a>
+        <a href="../Cullen_Merritt_Resume.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <a class="back" href="../index.html#projects">All projects</a>
+
+    <section class="case-hero" data-reveal>
+      <h1>Tactus</h1>
+      <p>A wearable remote that sends keyboard shortcuts to note-taking apps on an iPad. It sits in my palm on a TPU band, so shortcuts are there while I write and out of the way when I type.</p>
+    </section>
+
+    <div class="gallery">
+      <figure><img src="../assets/tactus/cover.jpg" alt="Tactus on the hand" onerror="this.parentElement.remove()"></figure>
+    </div>
+
+    <dl class="facts" data-reveal>
+      <div class="fact"><dt>Timeline</dt><dd>Jan 2026 to now</dd></div>
+      <div class="fact"><dt>Board</dt><dd>20 × 70 × 1.0 mm, 2 layer</dd></div>
+      <div class="fact"><dt>Chip</dt><dd>ESP32-C6 module</dd></div>
+      <div class="fact"><dt>Tools</dt><dd>KiCad, 3D printing</dd></div>
+    </dl>
+
+    <article class="prose" data-reveal>
+      <h2>The problem</h2>
+      <p>I take my notes on an iPad and wanted shortcuts right at hand while writing, without a keyboard in the way. Nothing on the market did what I needed, so I built it.</p>
+      <p>The iPad sees Tactus as a standard Bluetooth keyboard, so it works with any app that accepts keyboard shortcuts, with no driver or companion app. Its buttons are remapped from a Wi-Fi page the device hosts itself, so changing a shortcut takes a browser instead of new firmware.</p>
+
+      <h2>Design</h2>
+      <p>I proved the concept on hand-soldered prototypes built on a Seeed XIAO development board, then taught myself board design and laid out a custom board in KiCad. JLCPCB assembled five of them. I designed the 3D-printed housing and band around the board.</p>
+      <ul>
+        <li><strong>Thin in the hand.</strong> I chose a 1.0 mm board instead of the standard 1.6 mm, and low-profile parts. The trade is stiffness, which scales with thickness cubed, so the thinner board is about a quarter as stiff and the housing has to support it.</li>
+        <li><strong>Module instead of the bare chip.</strong> The ESP32-C6 module keeps its radio certification and tuned antenna, and avoids designing the crystal, flash and RF matching myself.</li>
+        <li><strong>Load-sharing power path.</strong> A P-channel transistor and a Schottky diode run the device from USB when it is plugged in, so the lithium polymer charger only ever sees the battery and can end the charge correctly. On unplug the load hands back to the battery without a reset.</li>
+        <li><strong>Wake on any button.</strong> All four buttons sit on the only pins that can wake the chip from deep sleep, so any press wakes it.</li>
+        <li><strong>Enclosure.</strong> PETG-CF housing, TPU band and a PLA case, printed in-house.</li>
+      </ul>
+      <p>I defined the firmware’s behavior and features, built it with AI coding agents, and debugged and validated it on the hardware myself.</p>
+    </article>
+
+    <div class="gallery">
+      <figure><img src="../assets/tactus/board.jpg" alt="Assembled Tactus circuit board" onerror="this.parentElement.remove()"><figcaption>Rev A board.</figcaption></figure>
+      <figure><img src="../assets/tactus/enclosure.jpg" alt="Tactus housing and band" onerror="this.parentElement.remove()"><figcaption>Printed housing and band.</figcaption></figure>
+    </div>
+
+    <article class="prose" data-reveal>
+      <h2>Measured results</h2>
+      <p>Measured on first power-up of the Rev A board with a 4000 count multimeter, zero offset checked at 0.1 mV with shorted probes.</p>
+    </article>
+
+    <div class="table-scroll" data-reveal>
+      <table>
+        <thead><tr><th>Measurement</th><th>Expected</th><th>Measured</th></tr></thead>
+        <tbody>
+          <tr><td>Transistor drop on battery</td><td class="num">1 to 5 mV</td><td class="num">1.1 mV</td></tr>
+          <tr><td>Schottky drop on USB</td><td class="num">0.2 to 0.4 V</td><td class="num">328 mV</td></tr>
+          <tr><td>3.3 V rail on USB</td><td class="num">3.25 to 3.35 V</td><td class="num">3.31 V</td></tr>
+          <tr><td>Charge regulation</td><td class="num">4.169 to 4.231 V</td><td class="num">4.19 V</td></tr>
+          <tr><td>Signal strength at 0.9 m</td><td>Match the XIAO prototype</td><td class="num">−59 dBm on both</td></tr>
+          <tr><td>Functional test (pairing, every shortcut, wake on each button, remap persistence)</td><td>Pass</td><td>Pass</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <article class="prose" data-reveal>
+      <p>One lesson from bring-up. Subtracting two absolute voltage readings suggested a 41 mV drop across the transistor. Measuring directly across the part gave 1.1 mV. Small differences get measured directly, never by subtracting two large readings.</p>
+
+      <h2>What failed</h2>
+      <p>The first board failed the moment I connected the battery. The charger chip bulged and the board smoked. Continuity checks on a second board showed it matched the design, so I checked the battery itself. The battery’s red lead landed on the board’s negative pin, because JST PH connectors have no standard polarity. That put the battery across the charger backwards, and the charger, the one part wired straight across the cell, failed first.</p>
+      <p>I swapped the battery leads, verified polarity with the meter, and the second board passed every test. Checking polarity before first connection was on my checklist and I skipped it. It is now a hard gate.</p>
+
+      <h2>Next revision</h2>
+      <ul>
+        <li>Reverse-polarity protection in the battery line, using the same transistor already on the board.</li>
+        <li>Wire color printed next to the battery connector, and a battery specified by part number.</li>
+        <li>A surge clamp on the USB input.</li>
+        <li>Measure deep-sleep and active current to get real battery life numbers.</li>
+      </ul>
+    </article>
+    <div class="case-end"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <h2>Let’s talk.</h2>
+      <p>Email is the fastest way to reach me.</p>
+      <div class="actions">
+        <a class="pill pill--fill" href="mailto:cfomerritt@gmail.com">Email me</a>
+        <a class="pill pill--line" href="https://www.linkedin.com/in/cullen-merritt">LinkedIn</a>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html#projects">All projects</a>
+        <a href="https://github.com/cullenmerritt">GitHub</a>
+      </div>
+      <small>© 2026 Cullen Merritt</small>
+    </div>
+  </footer>
+
+</body>
+</html>

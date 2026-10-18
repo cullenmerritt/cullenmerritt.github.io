@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robotic hand · Cullen Merritt</title>
+  <meta name="description" content="A tendon-driven robotic hand with 11 servos, built by Cullen Merritt from the open-source Robot Nano Hand design for undergraduate research at Iowa State.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../main.js" defer></script>
+</head>
+<body>
+
+  <header class="gnav">
+    <div class="wrap wrap--wide">
+      <a class="gnav__name" href="../index.html">Cullen Merritt</a>
+      <nav class="gnav__links" aria-label="Sections">
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#academics">Academics</a>
+        <a href="../index.html#interests">Interests</a>
+        <a href="../Cullen_Merritt_Resume.pdf">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <a class="back" href="../index.html#projects">All projects</a>
+
+    <section class="case-hero" data-reveal>
+      <h1>Robotic hand</h1>
+      <p>A 3D-printed, tendon-driven hand with 11 servos, controlled in Python on an NVIDIA Jetson Nano. Built for undergraduate research at Iowa State.</p>
+    </section>
+
+    <div class="gallery">
+      <figure><video src="../assets/robotic-hand/demo.mp4" controls muted playsinline preload="metadata" onerror="this.parentElement.remove()"></video></figure>
+      <figure><img src="../assets/robotic-hand/cover.jpg" alt="The robotic hand" onerror="this.parentElement.remove()"></figure>
+    </div>
+
+    <dl class="facts" data-reveal>
+      <div class="fact"><dt>Timeline</dt><dd>Aug 2024 to May 2025</dd></div>
+      <div class="fact"><dt>Actuation</dt><dd>11 servos, tendon driven</dd></div>
+      <div class="fact"><dt>Controller</dt><dd>Jetson Nano, Python</dd></div>
+      <div class="fact"><dt>Design</dt><dd>Open-source Robot Nano Hand</dd></div>
+    </dl>
+
+    <article class="prose" data-reveal>
+      <h2>What it is</h2>
+      <p>The hand follows the open-source <a href="https://developer.nvidia.com/embedded/community/jetson-projects/robot_nano_hand">Robot Nano Hand</a> design from the NVIDIA Jetson community. Servos pull fishing line tendons that run through the printed fingers, which keeps motor mass out of the fingers so they stay light.</p>
+
+      <h2>My part</h2>
+      <p>I built the hand and wrote the Python motion control on the Jetson Nano. Each servo is controlled individually, and coordinating them produced grasping, light throwing and other motions.</p>
+
+    </article>
+    <div class="case-end"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <h2>Let’s talk.</h2>
+      <p>Email is the fastest way to reach me.</p>
+      <div class="actions">
+        <a class="pill pill--fill" href="mailto:cfomerritt@gmail.com">Email me</a>
+        <a class="pill pill--line" href="https://www.linkedin.com/in/cullen-merritt">LinkedIn</a>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html#projects">All projects</a>
+        <a href="https://github.com/cullenmerritt">GitHub</a>
+      </div>
+      <small>© 2026 Cullen Merritt</small>
+    </div>
+  </footer>
+
+</body>
+</html>
